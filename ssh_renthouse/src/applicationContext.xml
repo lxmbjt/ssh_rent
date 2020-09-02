@@ -45,4 +45,9 @@
 			<ref bean="sessionFactory"/>
 		</property>
 	</bean>	
+	<bean id="houseInfoDAO" class="com.ssh.dao.impl.HouseInfoDAOImpl" parent="baseDAO" />
+	<bean id="houseAction" class="com.ssh.action.HouseAction">
+	<property name="dao" ref="houseInfoDAO"></property>
+	</bean>
+	
 	</beans>
