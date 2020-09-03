@@ -10,7 +10,7 @@ import com.ssh.dto.House;
 public class HouseInfoDAOImpl extends BaseDAO implements HouseInfoDAO {
 House house;
 	@Override
-	public House queryByHousetitle(String housetitle) throws Exception {
+	public House queryByHousetitle(String housetitle){
 		// TODO Auto-generated method stub
 		Session session=getSession();
 		String hql="from house where housetitle=?";
@@ -28,7 +28,7 @@ House house;
 	}
 
 	@Override
-	public String recommendHouse(String city) throws Exception {
+	public String recommendHouse(String city){
 		// TODO Auto-generated method stub
 		Session session=getSession();
 		String hql="from house where city=?";
@@ -57,6 +57,21 @@ House house;
 			if(i==7)break;
 		}
 		return houseItem_detail;
+	}
+
+	@Override
+	public House queryByHouseid(int house_id) {
+		// TODO Auto-generated method stub
+		Session session=getSession();
+		String hql="from house where houseId=?";
+		Query query  = session.createQuery(hql);
+		query.setInteger(0, house_id);
+		if(query.list().size()==1){
+			house=(House)query.list().get(0);
+		}
+
+		session.close();	
+		return house;
 	}
 
 	

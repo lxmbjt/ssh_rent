@@ -49,5 +49,11 @@
 	<bean id="houseAction" class="com.ssh.action.HouseAction">
 	<property name="dao" ref="houseInfoDAO"></property>
 	</bean>
+	<bean id="ownerDAO" class="com.ssh.dao.impl.OwnerDAOImpl" parent="baseDAO" />
+	<bean id="picDAO" class="com.ssh.dao.impl.PicDAOImpl" parent="baseDAO" />
+	<bean id="favoriteDAO" class="com.ssh.dao.impl.FavoriteDAOImpl" parent="baseDAO">
+	<property name="housedao" ref="houseInfoDAO"/>
+	<property name="ownerdao" ref="ownerDAO"/>
+	</bean>
 	
 	</beans>
