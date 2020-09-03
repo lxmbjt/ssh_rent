@@ -3,7 +3,7 @@
 <struts>
 <package name="default" extends="struts-default">
 <action name="houseAction" class="houseAction">
-		<result name="success">/house_new.jsp</result>
+		<result name="success">/house.jsp</result>
 		<result name="fail">/login.jsp</result>
 	</action>
 	</package>

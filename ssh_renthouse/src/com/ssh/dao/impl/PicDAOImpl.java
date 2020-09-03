@@ -28,12 +28,16 @@ public class PicDAOImpl extends BaseDAO implements PicDAO {
 		return pics;
 	}
 
+	@Override
 	public List<String> getPic(){
 		return pic;
 	}
+	
+	@Override
 	public int getPicNum(){
 		return pic.size();
 	}
+	@Override
 	public String getSixPic(){
 
 		String str="";
@@ -42,6 +46,7 @@ public class PicDAOImpl extends BaseDAO implements PicDAO {
 		}
 		return str;
 	}
+	@Override
 	public String getRemainPic(){
 		
 		String str="";
@@ -49,5 +54,19 @@ public class PicDAOImpl extends BaseDAO implements PicDAO {
 			str+="<li class=house-pic-list-item><img data-action=\"zoom\" class=house_img src=\""+pic.get(i)+"\"/></li>";
 		}
 		return str;
+	}
+
+	@Override
+	public String getAllPics() {
+		// TODO Auto-generated method stub
+		String[] pic=pics.split(" ");
+		String str_all="";
+		for(int i=0;i<pic.length;i++){		
+			str_all+="<li class=house-pic-list-item><img src=\""+pic[i]+"\"/></li>";
+		}
+
+		System.out.println(str_all);
+		return str_all;	
+		
 	}
 }
